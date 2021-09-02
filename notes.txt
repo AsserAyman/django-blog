@@ -1,0 +1,53 @@
+#Write requirements.txt & pip freeze
+
+-----------------------------------------------------------------------------------------------------------------------
+Django Lifecycle
+
+Install python  -> create virtual env -> Activate virtual env -> Install Django -> Create django project -> Run server
+    Once        ->          Once      ->       Many           ->        Once    ->          Once         ->     Many
+
+Create virtual env   -> python -m venv .(myenv)
+Activate virtual env -> .\Scripts\activate
+Install Django       -> pip install Django==3.2.7 ("Check LTS from https://www.djangoproject.com/download/")
+Create django project-> django-admin startproject ""project name" .
+
+-----------------------------------------------------------------------------------------------------------------------
+Creating a view
+
+a view is basically a web page frontent, so for a webpage you need some stuff, a url and some html
+
+Create views.py -> create a view as function-> in urls.py import view -> add url to urlpatterns
+
+Create a view as fn -> def nameOfView(request):
+                           some python
+                           return HttpResponse()
+
+importing view -> from .views import nameOfView
+adding url -> path('urlAdded', nameOfView),
+
+-----------------------------------------------------------------------------------------------------------------------
+Creating models - Components - Classes - Apps - modules
+
+Create app -> create class inside app -> link app to django -> Save
+
+Create app   -> python manage.py startapp nameOfClass 
+Create class -> inside models.py create your class (app) 
+Link         -> Add app to INSTALLED_APPS in settings.py
+Save         -> ctrl S -> python manage.py makemigrations -> python manage.py migrate
+
+class Article(models.Model):
+    title = models.TextField()
+    content = models.TextField()
+
+-----------------------------------------------------------------------------------------------------------------------
+Django project structure (after creating env and starting project)
+
+myenv      ->
+
+project    -> settings.py           "configuration of website"
+           -> urls.py               "Url patterns used by urlresolver"
+
+manage.py                           "Start webserver on our computer"
+
+Class      -> models.py             "Make Class Declaration"
+           -> 
